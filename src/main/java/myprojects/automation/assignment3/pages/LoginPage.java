@@ -4,6 +4,8 @@ import myprojects.automation.assignment3.utils.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     private WebDriver driver;
@@ -24,14 +26,20 @@ public class LoginPage {
     }
 
     public void fillInEmail() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
         driver.findElement(emailField).sendKeys(email);
     }
 
     public void fillInPassword() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
         driver.findElement(passwordField).sendKeys(password);
     }
 
     public void clickOnLoginButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         driver.findElement(loginButton).click();
     }
 }

@@ -22,27 +22,23 @@ public class DashboardPage {
     public void selectCategoriesMenuItem() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(catalogTab));
-
         WebElement catalogTabElement = driver.findElement(catalogTab);
         Actions actions = new Actions(driver);
         actions.moveToElement(catalogTabElement).build().perform();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(categoriesMenuItem));
-
         catalogTabElement.findElement(categoriesMenuItem).click();
     }
 
     public void clickOnUserIcon() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(userIcon));
-
         driver.findElement(userIcon).click();
     }
 
     public void clickOnExitButton() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(exitButton));
-
         driver.findElement(exitButton).click();
     }
 
