@@ -23,8 +23,9 @@ public class DashboardPage {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(catalogTab));
         WebElement catalogTabElement = driver.findElement(catalogTab);
+        WebElement categoriesMenuItemElement = driver.findElement(categoriesMenuItem);
         Actions actions = new Actions(driver);
-        actions.moveToElement(catalogTabElement).build().perform();
+        actions.moveToElement(catalogTabElement).moveToElement(categoriesMenuItemElement).build().perform();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(categoriesMenuItem));
         catalogTabElement.findElement(categoriesMenuItem).click();

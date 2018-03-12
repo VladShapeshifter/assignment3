@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
+import java.sql.Time;
+import java.util.Date;
+
 public class EventHandler implements WebDriverEventListener {
     @Override
     public void beforeAlertAccept(WebDriver webDriver) {
@@ -33,7 +36,7 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void afterNavigateTo(String s, WebDriver webDriver) {
-
+        System.out.println("\"" + s + "\" page have been successfully opened");
     }
 
     @Override
@@ -68,12 +71,12 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void beforeFindBy(By by, WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Search for element: \"" + by.toString() + "\"");
     }
 
     @Override
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Element \"" + by.toString() + "\" have been found successfully");
     }
 
     @Override
@@ -83,7 +86,7 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void afterClickOn(WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Element \"" + webDriver.toString() +  "\" have been clicked");
     }
 
     @Override
@@ -108,6 +111,6 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void onException(Throwable throwable, WebDriver webDriver) {
-
+        System.out.println("Something went wrong: " + throwable.fillInStackTrace());
     }
 }
